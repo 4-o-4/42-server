@@ -54,7 +54,7 @@ RUN service mysql start && \
     GRANT ALL PRIVILEGES ON wordpress.* TO 'gplaid'@'localhost' IDENTIFIED BY 'iegah9Ah'; \
     FLUSH PRIVILEGES;"
 
-# Nginx.conf
+# Nginx configuration
 COPY ./srcs/wp-nginx.conf /etc/nginx/sites-available/
 RUN ln -s /etc/nginx/sites-available/wp-nginx.conf /etc/nginx/sites-enabled/
 
@@ -70,13 +70,3 @@ CMD service php7.3-fpm start && \
     service mysql start && \
     service nginx start && \
     bash
-
-
-# docker build --tag wp .
-# docker run --name ft_server -it -p 80:80 -p 443:443 wp
-
-# sed -i "s/\bon\b/off/" /etc/nginx/sites-available/wp-nginx.conf
-# service nginx reload
-
-# docker rm -vf $(docker ps -aq)
-# docker rmi -f $(docker images -aq)
