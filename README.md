@@ -1,16 +1,16 @@
-# ft_server
+# server
 
-#### # Build image
+#### Build image
 ```docker
 docker build --tag wp .
 ```
 
-#### # Run container
+#### Run container
 ```docker
 docker run --name ft_server -it -p 80:80 -p 443:443 wp
 ```
 
-#### # Autoindex on/off
+#### Autoindex on/off
 ```bash
 sed -i "s/\bon\b/off/" /etc/nginx/sites-available/wp-nginx.conf
 service nginx reload
